@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Versus Void</title>
+
+    <script>
+        function downloadRandomTrack() {
+            var tracks = [
+                "tracks/martyr.mp3",
+                "tracks/done-is-done.mp3",
+                "tracks/4.mp3"
+            ];
+            var randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
+            var link = document.createElement("a");
+            link.href = encodeURI(randomTrack);
+            link.download = randomTrack;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function randomImage() {
+            var img = document.getElementById("randomImg");
+            img.src = "https://picsum.photos/200/150?random=" + Math.floor(Math.random()*10000);
+        }
+
+        function flicker() {
+            var el = document.getElementById("flicker");
+            el.style.opacity = Math.random() * 0.3 + 0.7;
+        }
+
+        var visitors = localStorage.getItem("visitors") || 3;
+        function incrementVisitors() {
+            visitors = parseInt(visitors) + Math.floor(Math.random() * 2);
+            localStorage.setItem("visitors", visitors);
+
+            document.getElementById("visitorCount").innerText =
+                visitors.toString().padStart(9, "0");
+        }
+
+        setInterval(flicker, 200);
+        setInterval(incrementVisitors, 3000);
+
+        window.onload = function() {
+            randomImage();
+            document.getElementById("lastUpdated").innerText =
+                new Date().toLocaleDateString();
+        };
+    </script>
+
+    <style>
+        body {
+            background-color: black;
+            color: #cfcfcf;
+            font-family: "Courier New", monospace;
+        }
+
+        .noise {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        a {
+            color: #0000EE;
+        }
+
+        a:visited {
+            color: #0000EE; /* changed from purple to blue */
+        }
+
+        input {
+            background: black;
+            color: white;
+            border: 1px solid #444;
+            width: 60%;
+        }
+
+        .glitch {
+    text-shadow: 
+        1px 0 #00ffff,
+        -1px 0 #00ffff;
+}
+        }
+
+        .pixel {
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: 3px solid #111111;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="noise"></div>
+
+<center>
+    <h2 id="flicker" class="glitch">VERSUS VOID</h2>
+</center>
+
+<hr>
+
+<table border="1" width="700" align="center" bgcolor="#111111" cellpadding="10">
+
+<tr>
+<td colspan="3" align="center" bgcolor="#0f0f0f">
+    <form action="https://formspree.io/f/mreojoby" method="POST">
+        <b class="glitch">enter ur email so I can send you updates</b><br><br>
+        <input type="email" name="email" placeholder="your email" required><br><br>
+        <input type="submit" value="submit">
+    </form>
+</td>
+</tr>
+
+<tr>
+
+<td width="150">
+    <b>Navigation</b>
+    <ul>
+        <li><a href="#" onclick="downloadRandomTrack()">Download a Track (MP3)</a></li>
+        <li><a href="https://linktr.ee/YOURNAME" target="_blank">Links</a></li>
+        <li><a href="feeling.html">I'm feeling like...</a></li>
+    </ul>
+
+    <p><font size="1">last updated: <span id="lastUpdated"></span></font></p>
+</td>
+
+<td width="400">
+
+    <hr>
+
+    <marquee scrollamount="3">
+        versus versus versus versus versus
+    </marquee>
+
+    <br><br>
+
+    <center>
+        <img id="randomImg" width="200" height="150" border="2" alt="random image">
+    </center>
+
+    <br><br>
+
+    <center>
+        <b>contact:</b><br>
+        <a href="mailto:voidversamgmt@gmail.com">voidversamgmt@gmail.com</a>
+    </center>
+
+</td>
+
+<td width="150" align="center">
+
+    <b>visitors</b><br><br>
+    <span id="visitorCount">000000003</span>
+
+    <br><br>
+
+    <marquee direction="down" height="150" scrollamount="2">
+        void void void void void void void
+    </marquee>
+
+</td>
+
+</tr>
+</table>
+
+<hr>
+
+<center>
+    <marquee scrollamount="10">
+        White lamb only painted blue,
+        And there's not a lot of things I wouldn't do for you,
+        Don't know, why I dream of you,
+        It's like you're still sitting in my room.
+    </marquee>
+
+    <br><br>
+
+    <font size="2">message me for a CD @versusvo1d :)</font>
+</center>
+
+</body>
+</html>
